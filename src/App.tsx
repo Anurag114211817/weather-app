@@ -54,7 +54,7 @@ const App: FC = () => {
 			setError(false)
 			if (formData.city === "") return;
 			const response = await axios.get(
-				`http://api.openweathermap.org/geo/1.0/direct?q=${formData.city.trim()},${formData.state.trim()},IN&limit=1&appid=13ff76d747f32405258ae02a2226a29e`
+				`https://api.openweathermap.org/geo/1.0/direct?q=${formData.city.trim()},${formData.state.trim()},IN&limit=1&appid=13ff76d747f32405258ae02a2226a29e`
 			);
 			const { lat, lon } = response.data[0];
 
