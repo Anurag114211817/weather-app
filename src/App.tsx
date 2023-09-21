@@ -164,7 +164,7 @@ const App: FC = () => {
 			</div>
 			<div className='container lg:w-[1024px] flex justify-between items-center m-auto px-3 sm:px-0'>
 				{(!first || error) && (
-					<h1 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl text-slate-400'>
+					<h1 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl w-full text-center sm:text-4xl text-slate-400'>
 						{searchRes}
 					</h1>
 				)}
