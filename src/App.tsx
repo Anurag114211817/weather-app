@@ -101,7 +101,7 @@ const App: FC = () => {
 		<>
 			<div className='h-16 bg-slate-950 flex justify-center'>
 				<div className='container lg:w-[1024px] flex justify-center sm:justify-between items-center'>
-					<div className='hidden sm:flex items-end'>
+					<div className='hidden sm:flex items-end'> 
 						<img src='/logo.svg' alt='err' className='w-10' />
 						<h1 className='text-white sm:text-lg md:text-2xl font-bold ml-3'>Weather App</h1>
 					</div>
