@@ -100,19 +100,19 @@ const App: FC = () => {
 	return (
 		<>
 			<div className='h-16 bg-slate-950 flex justify-center'>
-				<div className='container lg:w-[1024px] flex justify-between items-center'>
-					<div className='flex items-end'>
+				<div className='container lg:w-[1024px] flex justify-center sm:justify-between items-center'>
+					<div className='hidden sm:flex items-end'>
 						<img src='/logo.svg' alt='err' className='w-10' />
-						<h1 className='text-white text-2xl font-bold ml-3'>Weather App</h1>
+						<h1 className='text-white lg:text-2xl font-bold ml-3'>Weather App</h1>
 					</div>
-					<div className=''>
+					<div className="px-3 sm:px-0">
 						<div className='bg-slate-100 p-2 rounded-full flex gap-2'>
-							<GoSearch className='self-center ml-1' />
+							<GoSearch className='self-center sm:ml-1' />
 							<input
 								type='text'
 								name='city'
 								autoComplete='off'
-								className='bg-transparent self-end'
+								className='bg-transparent self-end w-1/2'
 								placeholder='Search City'
 								value={formData.city}
 								onKeyUp={(e: KeyboardEvent<HTMLInputElement>) => {
@@ -125,7 +125,7 @@ const App: FC = () => {
 									}));
 								}}
 							/>
-							<div className='relative w-48 bg-white rounded-full shadow-xl flex'>
+							<div className='relative sm:w-48 bg-white rounded-full shadow-xl flex'>
 								<input
 									type='text'
 									name='state'
@@ -140,7 +140,7 @@ const App: FC = () => {
 									{!show ? <GoChevronDown /> : <GoChevronUp />}
 								</div>
 								<div
-									className={`absolute left-0 top-8 rounded-lg bg-white shadow-xl w-full border ${
+									className={`z-50 absolute left-0 top-8 rounded-lg bg-white shadow-xl w-full border ${
 										!show ? "hidden" : ""
 									}`}>
 									<ul className='max-h-72 overflow-y-scroll p-2 scroll-py-2'>
@@ -162,19 +162,19 @@ const App: FC = () => {
 					</div>
 				</div>
 			</div>
-			<div className='container lg:w-[1024px] flex justify-between items-center m-auto'>
+			<div className='container lg:w-[1024px] flex justify-between items-center m-auto px-3 sm:px-0'>
 				{(!first || error) && (
 					<h1 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl text-slate-400'>
 						{searchRes}
 					</h1>
 				)}
 				{first && (
-					<div className='bg-white border rounded-lg mt-10 shadow-lg w-full p-5 h-96	'>
+					<div className='bg-white border rounded-lg mt-10 shadow-lg w-full p-5 min-h-[24rem]	'>
 						{loading && (
 							<div
 								role='status'
 								className='space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center'>
-								<div className='flex items-center justify-center h-72 bg-gray-300 rounded w-96 dark:bg-gray-700'>
+								<div className='flex items-center justify-center h-48 w-48 sm:h-72 bg-gray-300 rounded sm:w-96 dark:bg-gray-700'>
 									<svg
 										className='w-10 h-10 text-gray-200 dark:text-gray-600'
 										aria-hidden='true'
@@ -202,15 +202,15 @@ const App: FC = () => {
 						)}
 						{!!Object.keys(data).length && (
 							<>
-								<div className='flex justify-between'>
+								<div className='flex justify-between '>
 									<h1 className='text-cl'>{data.name}</h1>
-									<h1 className='text-base'>{moment().format("LLLL")}</h1>
+									<h1 className='text-base'>{moment().format("LLL")}</h1>
 								</div>
-								<div className='grid grid-cols-12'>
+								<div className='sm:grid sm:grid-cols-12'>
 									<div className='col-span-4 flex items-center flex-col'>
 										<img
 											src={`https://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`}
-											className='w-24 drop-shadow-lg h-24'
+											className='w-24 drop-shadow-lg h-24 z-30'
 											alt='err'
 										/>
 										<h2 className='text-base -mt-4'>{data?.weather[0].main}</h2>
